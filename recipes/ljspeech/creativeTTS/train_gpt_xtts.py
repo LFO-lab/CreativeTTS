@@ -4,8 +4,7 @@ from trainer import Trainer, TrainerArgs
 
 from TTS.config.shared_configs import BaseDatasetConfig
 from TTS.tts.datasets import load_tts_samples
-from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig
-from TTS.tts.models.xtts import XttsAudioConfig
+from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
 from TTS.utils.manage import ModelManager
 
 # Logging parameters
@@ -27,10 +26,10 @@ GRAD_ACUMM_STEPS = 84  # set here the grad accumulation steps
 # Define here the dataset that you want to use for the fine-tuning on.
 config_dataset = BaseDatasetConfig(
     formatter="ljspeech",
-    dataset_name="MIMI Perso",
-    path="./training/Datasets/MIMI_DATASET_22-16",
-    meta_file_train="metadata.csv",
-    language="fr",
+    dataset_name="ljspeech",
+    path="/raid/datasets/LJSpeech-1.1_24khz/",
+    meta_file_train="/raid/datasets/LJSpeech-1.1_24khz/metadata.csv",
+    language="en",
 )
 
 # Add here the configs of the datasets
@@ -42,8 +41,8 @@ os.makedirs(CHECKPOINTS_OUT_PATH, exist_ok=True)
 
 
 # DVAE files
-DVAE_CHECKPOINT_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/dvae.pth"
-MEL_NORM_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/mel_stats.pth"
+DVAE_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/dvae.pth"
+MEL_NORM_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/mel_stats.pth"
 
 # Set the path to the downloaded files
 DVAE_CHECKPOINT = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(DVAE_CHECKPOINT_LINK))
@@ -56,8 +55,8 @@ if not os.path.isfile(DVAE_CHECKPOINT) or not os.path.isfile(MEL_NORM_FILE):
 
 
 # Download XTTS v2.0 checkpoint if needed
-TOKENIZER_FILE_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/vocab.json"
-XTTS_CHECKPOINT_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/model.pth"
+TOKENIZER_FILE_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/vocab.json"
+XTTS_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/model.pth"
 
 # XTTS transfer learning parameters: You we need to provide the paths of XTTS model checkpoint that you want to do the fine tuning.
 TOKENIZER_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(TOKENIZER_FILE_LINK))  # vocab.json file

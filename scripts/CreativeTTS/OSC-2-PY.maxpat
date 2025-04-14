@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 106.0, 640.0, 480.0 ],
+		"rect" : [ 233.0, 115.0, 824.0, 678.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -41,13 +41,13 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-11",
-					"linecount" : 15,
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 137.0, 307.0, 50.0, 210.0 ],
-					"text" : "/Users/dthibault/Documents/GitHub/CreativeTTS/output/Bonjour_je_mapelle_Dominic_1744218880.wav"
+					"patching_rect" : [ 137.0, 307.0, 286.0, 49.0 ],
+					"text" : "/Users/dthibault/Documents/GitHub/CreativeTTS/output/Bonjour_je_mapelle_Dominic_et_1744229392.wav"
 				}
 
 			}
@@ -60,19 +60,6 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 146.0, 235.0, 69.0, 22.0 ],
 					"text" : "route /done"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-8",
-					"linecount" : 3,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 114.0, 474.0, 364.0, 49.0 ],
-					"text" : "/done /Users/dthibault/Documents/GitHub/CreativeTTS/output/Mein_kat_ist_schwarz_1744217828.wav"
 				}
 
 			}
@@ -95,21 +82,21 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 228.0, 93.0, 204.0, 22.0 ],
-					"presentation_linecount" : 2,
-					"text" : "/speak \"Bonjour, je mapelle Dominic\""
+					"patching_rect" : [ 228.0, 93.0, 470.0, 22.0 ],
+					"text" : "/speak \"Bonjour, je mapelle Dominic et je suis un adulte de 41 ans. J'aime les patates.\""
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-3",
+					"linecount" : 6,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 146.0, 69.0, 164.0, 22.0 ],
-					"text" : "/speak \"Mein kat ist schwarz\""
+					"patching_rect" : [ 146.0, 2.0, 676.0, 89.0 ],
+					"text" : "/speak \"La synthèse vocale permet aujourd’hui de transformer du texte en parole avec une fluidité impressionnante. Grâce aux avancées en intelligence artificielle, il est désormais possible de générer des voix naturelles et expressives à partir de simples phrases. Ce progrès révolutionne de nombreux domaines, comme l’accessibilité, l’éducation ou encore les arts numériques. En combinant la synthèse vocale à des systèmes interactifs, on ouvre la porte à des expériences immersives où la voix devient un véritable outil de création. Les artistes, chercheurs et développeurs explorent ensemble ces nouvelles possibilités, construisant des ponts entre la technologie et l’expression humaine.\""
 				}
 
 			}

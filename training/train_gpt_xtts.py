@@ -4,18 +4,17 @@ from trainer import Trainer, TrainerArgs
 
 from TTS.config.shared_configs import BaseDatasetConfig
 from TTS.tts.datasets import load_tts_samples
-from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig
-from TTS.tts.models.xtts import XttsAudioConfig
+from TTS.tts.layers.xtts.trainer.gpt_trainer import GPTArgs, GPTTrainer, GPTTrainerConfig, XttsAudioConfig
 from TTS.utils.manage import ModelManager
 
 # Logging parameters
-RUN_NAME = "GPT_XTTS_v2.0_LJSpeech_FT"
-PROJECT_NAME = "XTTS_trainer"
+RUN_NAME = "MIMI perso"
+PROJECT_NAME = "MIMI finetune"
 DASHBOARD_LOGGER = "tensorboard"
 LOGGER_URI = None
 
 # Set here the path that the checkpoints will be saved. Default: ./run/training/
-OUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "run", "training")
+OUT_PATH = "./training/Output"
 
 # Training Parameters
 OPTIMIZER_WD_ONLY_ON_WEIGHTS = True  # for multi-gpu training please make it False
@@ -42,8 +41,8 @@ os.makedirs(CHECKPOINTS_OUT_PATH, exist_ok=True)
 
 
 # DVAE files
-DVAE_CHECKPOINT_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/dvae.pth"
-MEL_NORM_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/mel_stats.pth"
+DVAE_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/dvae.pth"
+MEL_NORM_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/mel_stats.pth"
 
 # Set the path to the downloaded files
 DVAE_CHECKPOINT = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(DVAE_CHECKPOINT_LINK))
@@ -56,8 +55,8 @@ if not os.path.isfile(DVAE_CHECKPOINT) or not os.path.isfile(MEL_NORM_FILE):
 
 
 # Download XTTS v2.0 checkpoint if needed
-TOKENIZER_FILE_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/vocab.json"
-XTTS_CHECKPOINT_LINK = "https://huggingface.co/coqui/XTTS-v2/resolve/main/model.pth"
+TOKENIZER_FILE_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/vocab.json"
+XTTS_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/model.pth"
 
 # XTTS transfer learning parameters: You we need to provide the paths of XTTS model checkpoint that you want to do the fine tuning.
 TOKENIZER_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(TOKENIZER_FILE_LINK))  # vocab.json file
@@ -73,7 +72,7 @@ if not os.path.isfile(TOKENIZER_FILE) or not os.path.isfile(XTTS_CHECKPOINT):
 
 # Training sentences generations
 SPEAKER_REFERENCE = [
-    "./tests/data/ljspeech/wavs/LJ001-0002.wav"  # speaker reference to be used in training test sentences
+    "./training/Datasets/MIMI_DATASET_22-16/2.wav"  # speaker reference to be used in training test sentences
 ]
 LANGUAGE = config_dataset.language
 
